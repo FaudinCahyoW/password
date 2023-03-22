@@ -28,6 +28,35 @@
   color: #61dafb;
 }
 
+/* Styling App.js */
+
+.main{
+  height: 100vh;
+  background: tomato;
+}
+
+.right{
+  height: 100vh;
+  width: 35%;
+}
+.left{
+  height: 100vh;
+  width: 65%;
+  background-color: gainsboro;
+}
+
+@media screen and (max-width: 480px){
+  .right{
+    width: fit-content;
+  }
+}
+
+
+/* End Styling */
+
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
