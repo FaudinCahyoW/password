@@ -1,0 +1,35 @@
+.loginForm{
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.italicText:placeholder-shown{
+    font-style: italic;
+}
+
+
+.loginContent{
+    width: 400px;
+}
+
+.was-validated .italicText:valid{
+    background-image: none;
+}
+.was-validated .italicText:invalid{
+    background-image: none;
+}
+
+@media only screen and (max-width:600px){
+    .loginForm{
+        width: 100vw;
+    }
+    .loginContent{
+        padding: 30px;
+
+    }
+    .forgot{
+        padding-right: 2rem;
+    }
+}
