@@ -1,14 +1,13 @@
 import "../App.css";
-import FormComponent from "../components/formComponent";
+import LoginFormComponent from "../components/loginformComponent";
+import AuthLayouts from "../layouts/authLayout";
+
 
 function LoginPage() {
   return (
-    <div className="main d-flex">
-      <div className="left"></div>
-      <div className="bg-light right">
-        <FormComponent />
-      </div>
-    </div>
-  );
+      <AuthLayouts>
+        <LoginFormComponent />
+      </AuthLayouts>
+    );
 }
 export default LoginPage;
