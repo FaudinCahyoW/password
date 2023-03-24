@@ -1,0 +1,27 @@
+.confirmForm{
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.italicText:placeholder-shown{
+    font-style: italic;
+}
+
+
+.confirmContent{
+    width: 400px;
+}
+
+
+@media only screen and (max-width:600px){
+    .confirmForm{
+        width: 100vw;
+    }
+    .confirmContent{
+        padding: 30px;
+
+    }
+
+}

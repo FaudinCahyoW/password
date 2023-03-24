@@ -53,7 +53,7 @@ function LoginFormComponent() {
             </Button>
           </div>
           <div className="justify-content-end align-items-end d-flex forgot">
-            <Link className="text-success">
+            <Link className="text-success" to={"/confirm"}>
               Lupa Sandi
             </Link>
           </div>

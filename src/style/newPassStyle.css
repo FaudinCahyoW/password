@@ -1,0 +1,27 @@
+.newPassForm{
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.italicText:placeholder-shown{
+    font-style: italic;
+}
+
+
+.newPassContent{
+    width: 400px;
+}
+
+
+@media only screen and (max-width:600px){
+    .newPassForm{
+        width: 100vw;
+    }
+    .newPassContent{
+        padding: 30px;
+
+    }
+
+}
