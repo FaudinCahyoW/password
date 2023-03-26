@@ -28,6 +28,9 @@ function LoginFormComponent() {
                 className="italicText"
                 type="text"
                 placeholder="Value"
+                minLength={
+                  6
+                }
                 required
               />
             </Form.Group>
@@ -54,7 +57,7 @@ function LoginFormComponent() {
           </div>
           <div className="justify-content-end align-items-end d-flex forgot">
             <Link className="text-success" to={"/confirm"}>
-              Lupa Sandi
+              Forgot Password
             </Link>
           </div>
         </Form>
