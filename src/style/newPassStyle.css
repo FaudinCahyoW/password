@@ -14,11 +14,6 @@
     width: 400px;
 }
 
-.invalid{
-    border: 1px solid red;
-}
-
-
 @media only screen and (max-width:600px){
     .newPassForm{
         width: 100vw;
