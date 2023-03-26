@@ -7,7 +7,7 @@ function ConfirmEmail() {
     <div className="confirmForm">
       <Form>
         <div className="confirmContent">
-          <h3 className="mb-4 fw-bold">Konfirmasi Email</h3>
+          <h3 className="mb-4 fw-bold">Email Confirmation</h3>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Username</Form.Label>
             <Form.Control
@@ -19,7 +19,7 @@ function ConfirmEmail() {
 
           <Link to={"/password"}>
             <Button type="submit" className="w-100 d-grid bg-success mb-2">
-              Kirim Verifikasi
+              Send Verification
             </Button>
           </Link>
         </div>
