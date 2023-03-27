@@ -1,40 +1,22 @@
 import "../style/newPassStyle.css";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import { useFormik, Formik } from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
 
 const schema = Yup.object().shape({
   password: Yup.string().required().min(6, "at least 6 character"),
+  confirm_password: Yup.string().required().min(6, "at least 6 character"),
 });
 
 function NewPassword() {
-  {
-    /* <Form.Group as={Col} md="6" controlId="validationFormik03">
-    <Form.Label>City</Form.Label>
-    <Form.Control
-      type="text"
-      placeholder="City"
-      name="city"
-      value={values.city}
-      onChange={handleChange}
-      isInvalid={!!errors.city}
-    />
-
-    <Form.Control.Feedback type="invalid">
-      {errors.city}
-    </Form.Control.Feedback>
-  </Form.Group>
-
-<Button type="submit">Submit form</Button> */
-  }
   return (
     <Formik
       validationSchema={schema}
       onSubmit={console.log}
       initialValues={{
         password: "",
+        confirm_password: "",
       }}
     >
       {({ handleSubmit, handleChange, values, errors }) => (
@@ -71,7 +53,14 @@ function NewPassword() {
                   className="italicText mb-4"
                   type="password"
                   placeholder="*****"
+                  name="confirm_password"
+                  value={values.confirm_password}
+                  onChange={handleChange}
+                  isInvalid={!!errors.confirm_password}
                 />
+                <Form.Control.Feedback type="invalid">
+                  {errors.confirm_password}
+                </Form.Control.Feedback>
               </Form.Group>
 
               <Button type="submit" className="w-100 d-grid bg-success mb-2">

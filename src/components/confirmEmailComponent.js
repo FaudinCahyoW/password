@@ -1,6 +1,5 @@
 import "../style/confirmStyle.css";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -41,9 +40,9 @@ function ConfirmEmail() {
                 </Form.Control.Feedback>
               </Form.Group>
 
-                <Button type="submit" className="w-100 d-grid bg-success mb-2">
-                  Send Verification
-                </Button>
+              <Button type="submit" className="w-100 d-grid bg-success mb-2">
+                Send Verification
+              </Button>
             </div>
           </Form>
         </div>
