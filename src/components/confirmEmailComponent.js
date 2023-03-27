@@ -1,30 +1,54 @@
 import "../style/confirmStyle.css";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Formik } from "formik";
+import * as Yup from "yup";
+
+const schema = Yup.object().shape({
+  email: Yup.string().required(),
+});
 
 function ConfirmEmail() {
   return (
-    <div className="confirmForm">
-      <Form>
-        <div className="confirmContent">
-          <h3 className="mb-4 fw-bold">Email Confirmation</h3>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              className="italicText mb-4"
-              type="email"
-              placeholder="Value"
-            />
-          </Form.Group>
+    <Formik
+      validationSchema={schema}
+      onSubmit={console.log}
+      initialValues={{
+        email: "",
+      }}
+    >
+      {({ handleSubmit, handleChange, values, errors }) => (
+        <div className="confirmForm">
+          <Form noValidate onSubmit={handleSubmit}>
+            <div className="confirmContent">
+              <h3 className="mb-4 fw-bold">Email Confirmation</h3>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  className="italicText mb-4"
+                  type="email"
+                  placeholder="Value"
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  isInvalid={!!errors.email}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.email}
+                </Form.Control.Feedback>
+              </Form.Group>
 
-          <Link to={"/password"}>
-            <Button type="submit" className="w-100 d-grid bg-success mb-2">
-              Send Verification
-            </Button>
-          </Link>
+                <Button type="submit" className="w-100 d-grid bg-success mb-2">
+                  Send Verification
+                </Button>
+            </div>
+          </Form>
         </div>
-      </Form>
-    </div>
+      )}
+    </Formik>
   );
 }
 
