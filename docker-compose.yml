@@ -1,0 +1,15 @@
+version: '3'
+
+networks:
+  crm-net:
+    external: true
+
+services:
+  crm-fe:
+    container_name: crm-fe
+    build: .
+    networks:
+      - crm-net
+    restart: on-failure
+    ports:
+      - "3021:3000"
