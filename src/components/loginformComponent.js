@@ -2,9 +2,10 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
-import "../style/loginFormStyle.css";
 import { Formik } from "formik";
 import * as Yup from "yup";
+
+import "../assets/style/loginFormStyle.css";
 
 const schema = Yup.object().shape({
   email: Yup.string().required(),

@@ -1,8 +1,9 @@
-import "../style/newPassStyle.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Formik } from "formik";
 import * as Yup from "yup";
+
+import "../assets/style/newPassStyle.css";
 
 const schema = Yup.object().shape({
   password: Yup.string().required().min(6, "at least 6 character"),

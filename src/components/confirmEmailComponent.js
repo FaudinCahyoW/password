@@ -1,4 +1,4 @@
-import "../style/confirmStyle.css";
+import "../assets/style/confirmStyle.css";
 import { Button, Form } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
