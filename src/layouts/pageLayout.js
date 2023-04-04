@@ -162,8 +162,8 @@ const PageLayout = (props) => {
         </Header>
 
         <Content className="page-content">
-          <Outlet />
           {children}
+          <Outlet />
         </Content>
       </Layout>
     </Layout>
