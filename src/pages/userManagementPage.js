@@ -9,10 +9,22 @@ import TableUser from "../components/userListComponent";
 const items = [
   {
     key: 1,
-    label: `Super Admin User`,
+    label: (
+      <span>
+        <strong>Super Admin User</strong>
+      </span>
+    ),
     children: <TableUser />,
   },
-  { key: 2, label: `Admin User`, children: `Content of tab Admin User` },
+  {
+    key: 2,
+    label: (
+      <span>
+        <strong>Admin User</strong>
+      </span>
+    ),
+    children: `Content of tab Admin User`,
+  },
 ];
 
 const UserManagementPage = () => {

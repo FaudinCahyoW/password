@@ -11,12 +11,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route index element={<LoginPage />} />
         <Route path="/confirm" element={<ConfirmPage />} />
         <Route path="/password" element={<NewPassPage />} />
       </Routes>
 
-      <Routes path="/" element={<PageLayout />}>
+      <Routes element={<PageLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/user" element={<UserList />} />
       </Routes>
