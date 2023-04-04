@@ -13,7 +13,7 @@ import { Layout, Menu, theme, Image, Input, Avatar } from "antd";
 import { useState } from "react";
 
 import "../assets/style/pageLayout.css";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const { Search } = Input;
 const onSearch = (value) => console.log(value);
@@ -161,7 +161,10 @@ const PageLayout = (props) => {
           </div>
         </Header>
 
-        <Content className="page-content">{children}</Content>
+        <Content className="page-content">
+          <Outlet />
+          {children}
+        </Content>
       </Layout>
     </Layout>
   );
