@@ -13,6 +13,7 @@ import { Layout, Menu, theme, Image, Input } from "antd";
 import { useState } from "react";
 
 import "../assets/style/pageLayout.css";
+import { useNavigate } from "react-router-dom";
 
 const { Search } = Input;
 const onSearch = (value) => console.log(value);
@@ -28,14 +29,14 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  getItem("Dashboard", "1", <AppstoreOutlined />),
+  getItem("Dashboard", "/dashboard", <AppstoreOutlined />),
   {
     type: "divider",
   },
   getItem("MANAGEMENT", "sub1", <SettingOutlined />, [
-    getItem("Lead", "2", <TeamOutlined />),
-    getItem("Opportunity", "3", <PieChartOutlined />),
-    getItem("User Management", "4", <UserAddOutlined />),
+    getItem("Lead", "/lead", <TeamOutlined />),
+    getItem("Opportunity", "/opportunity", <PieChartOutlined />),
+    getItem("User Management", "/user", <UserAddOutlined />),
   ]),
 ];
 
@@ -46,6 +47,8 @@ const PageLayout = (props) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  const navigate = useNavigate();
 
   return (
     <Layout
@@ -74,8 +77,12 @@ const PageLayout = (props) => {
           <Image height={"60px"} src={require("../assets/img/logo.png")} />
         </div>
         <Menu
+          onClick={({ key }) => {
+            navigate(key);
+          }}
           theme="light"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["dashboard"]}
+          defaultOpenKeys={["sub1"]}
           mode="inline"
           items={items}
         />
