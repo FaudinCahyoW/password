@@ -92,7 +92,15 @@ const PageLayout = (props) => {
             padding: 10,
           }}
         >
-          <Image height={"60px"} src={require("../assets/img/logo.png")} />
+          <Image
+            height={"55px"}
+            src={
+              collapsed
+                ? require("../assets/img/logo-crop.png")
+                : require("../assets/img/logo.png")
+            }
+            preview={false}
+          />
         </div>
         <Menu
           onClick={({ key }) => {
