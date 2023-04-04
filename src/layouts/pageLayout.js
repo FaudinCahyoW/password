@@ -7,9 +7,9 @@ import {
   RightCircleOutlined,
   LeftCircleOutlined,
   BellOutlined,
-  SettingOutlined,
+  ExportOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu, theme, Image, Input } from "antd";
+import { Layout, Menu, theme, Image, Input, Avatar } from "antd";
 import { useState } from "react";
 
 import "../assets/style/pageLayout.css";
@@ -29,15 +29,33 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  getItem("Dashboard", "/dashboard", <AppstoreOutlined />),
   {
     type: "divider",
   },
-  getItem("MANAGEMENT", "sub1", <SettingOutlined />, [
-    getItem("Lead", "/lead", <TeamOutlined />),
-    getItem("Opportunity", "/opportunity", <PieChartOutlined />),
-    getItem("User Management", "/user", <UserAddOutlined />),
-  ]),
+  getItem("Dashboard", "/dashboard", <AppstoreOutlined />),
+  getItem("Lead", "/lead", <TeamOutlined />),
+  getItem("Opportunity", "/opportunity", <PieChartOutlined />),
+  getItem("User Management", "/user", <UserAddOutlined />),
+  {
+    type: "divider",
+  },
+  getItem(
+    <span>
+      <strong>Username</strong>
+    </span>,
+    "/profile",
+    <Avatar
+      src={<img src={require("../assets/img/avatar.png")} alt="avatar" />}
+      size={14}
+    />
+  ),
+  getItem(
+    <span className="text-danger">
+      <strong>Log Out</strong>
+    </span>,
+    "logout",
+    <ExportOutlined rotate={180} className="text-danger" />
+  ),
 ];
 
 const PageLayout = (props) => {
@@ -71,14 +89,18 @@ const PageLayout = (props) => {
       >
         <div
           style={{
-            margin: 16,
+            padding: 10,
           }}
         >
           <Image height={"60px"} src={require("../assets/img/logo.png")} />
         </div>
         <Menu
           onClick={({ key }) => {
-            navigate(key);
+            if (key === "logout") {
+              // call function logout
+            } else {
+              navigate(key);
+            }
           }}
           theme="light"
           defaultSelectedKeys={["dashboard"]}
