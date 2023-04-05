@@ -1,12 +1,12 @@
 import "../App.css";
 import NewPassword from "../components/newPassComponent";
-import AuthLayouts from "../layouts/authLayout";
+import AuthLayoutConfirm from "../layouts/authLayoutConfirm";
 
 function NewPassPage(){
     return(
-        <AuthLayouts>
+        <AuthLayoutConfirm>
             <NewPassword/>
-        </AuthLayouts>
+        </AuthLayoutConfirm>
     )
 }
 export default NewPassPage

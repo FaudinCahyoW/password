@@ -4,6 +4,7 @@ import {
   Card,
   Input,
   Pagination,
+  notification,
   Select,
   Space,
   Table,
@@ -17,6 +18,75 @@ import {
   FilePdfOutlined,
   FileExcelOutlined,
 } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom/dist";
+
+
+
+const data = [];
+for (let i = 1; i < 46; i++) {
+  data.push({
+    key: i,
+    name: `John Brown `,
+    age: `32`,
+    address: `New York No. 1 Lake Park `,
+    year: "12/10/2022/1",
+    source: "Website",
+    budget: `Rp. 1000.000 `,
+    role: `Manager `,
+  });
+}
+
+const exportPage = (
+  <>
+    <div className="d-flex align-items-center">
+      <h6 className="text-secondary">
+        <strong>Download:</strong>
+      </h6>
+      <Button
+        className="mx-2"
+        type="primary"
+        style={{ background: "#02304A" }}
+        icon={<FilePdfOutlined />}
+      >
+        Export to PDF
+      </Button>
+      <Button
+        type="primary"
+        style={{ background: "green" }}
+        icon={<FileExcelOutlined />}
+      >
+        Export to Excel
+      </Button>
+    </div>
+  </>
+);
+
+const { Search } = Input;
+const onSearch = (value) => console.log(value);
+
+const { Option } = Select;
+
+const dropLead = (
+  <div>
+    <span>Show</span>
+    <Select defaultValue="10" placeholder="Select" className="mx-2">
+      <Option value="10">10</Option>
+      <Option value="20">20</Option>
+      <Option value="50">50</Option>
+      <Option value="100">100</Option>
+    </Select>
+    <span>entries</span>
+  </div>
+);
+
+const ListLeadPage = () => {
+  const [api, contextHolder] = notification.useNotification();
+  const openNotificationWithIcon = (type) => {
+    api.error({
+      
+      message: 'Data successfully deleted',
+    });
+  };
 
 const columns = [
   {
@@ -82,7 +152,8 @@ const columns = [
             }}
           />
         </button>
-        <button className="border-0 bg-light">
+        {contextHolder}
+        <button className="border-0" onClick={()=>openNotificationWithIcon()}>
           <DeleteOutlined
             style={{
               color: "#ED0000",
@@ -94,70 +165,19 @@ const columns = [
   },
 ];
 
-const data = [];
-for (let i = 1; i < 46; i++) {
-  data.push({
-    key: i,
-    name: `John Brown `,
-    age: `32`,
-    address: `New York No. 1 Lake Park `,
-    year: "12/10/2022/1",
-    source: "Website",
-    budget: `Rp. 1000.000 `,
-    role: `Manager `,
-  });
-}
 
-const exportPage = (
-  <>
-    <div className="d-flex align-items-center">
-      <h6 className="text-secondary">
-        <strong>Download:</strong>
-      </h6>
-      <Button
-        className="mx-2"
-        type="primary"
-        style={{ background: "#02304A" }}
-        icon={<FilePdfOutlined />}
-      >
-        Export to PDF
-      </Button>
-      <Button
-        type="primary"
-        style={{ background: "green" }}
-        icon={<FileExcelOutlined />}
-      >
-        Export to Excel
-      </Button>
-    </div>
-  </>
-);
 
-const addLead = (
-  <Button type="primary" icon={<PlusOutlined />}>
-    Add Lead
-  </Button>
-);
+  const link = useNavigate();
+  const addLead = (
+    <Button
+      type="primary"
+      icon={<PlusOutlined />}
+      onClick={() => link("/addlead")}
+    >
+      Add Lead
+    </Button>
+  );
 
-const { Search } = Input;
-const onSearch = (value) => console.log(value);
-
-const { Option } = Select;
-
-const dropLead = (
-  <div>
-    <span>Show</span>
-    <Select defaultValue="10" placeholder="Select" className="mx-2">
-      <Option value="10">10</Option>
-      <Option value="20">20</Option>
-      <Option value="50">50</Option>
-      <Option value="100">100</Option>
-    </Select>
-    <span>entries</span>
-  </div>
-);
-
-const ListLeadPage = () => {
   return (
     <PageLayout
       titlePage={"Lead"}
