@@ -10,23 +10,24 @@ import OpportunityPage from "./pages/opportunityPage";
 import AddOpportunityPage from "./pages/addOpportunityPage";
 import EditOpportunityPage from "./pages/editOpportunityPage";
 import DetailOpportunityPage from "./pages/detailOpportunityPage";
+import NotFoundPage from "./pages/notFoundPage";
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route index element={<LoginPage />} />
+      <Routes path="/" index element={<PageLayout />}>
+        <Route path="*" element={<NotFoundPage />} />
+
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/confirm" element={<ConfirmPage />} />
         <Route path="/password" element={<NewPassPage />} />
-      </Routes>
 
-      <Routes element={<PageLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/user" element={<UserList />} />
-        <Route path="/opportunity" element={<OpportunityPage /> } />
-        <Route path="/opportunity/create" element={<AddOpportunityPage /> } />
-        <Route path="/opportunity/edit" element={<EditOpportunityPage /> } />
-        <Route path="/opportunity/detail" element={<DetailOpportunityPage /> } />
+        <Route path="/opportunity" element={<OpportunityPage />} />
+        <Route path="/opportunity/create" element={<AddOpportunityPage />} />
+        <Route path="/opportunity/edit" element={<EditOpportunityPage />} />
+        <Route path="/opportunity/detail" element={<DetailOpportunityPage />} />
       </Routes>
     </Router>
   );

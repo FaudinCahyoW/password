@@ -2,26 +2,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Breadcrumb, Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import Card from 'react-bootstrap/Card';
-import { BiSearchAlt, BiPlus } from "react-icons/bi";
+import Card from "react-bootstrap/Card";
 
 import PageLayout from "../layouts/pageLayout";
-import TableUser from "../components/opportunityListComponent";
 import OpportunityListComponent from "../components/opportunityListComponent";
-import '../assets/style/opportunityPageStyle.css';
+import "../assets/style/opportunityPageStyle.css";
 
 const OpportunityPage = () => {
   const navigate = useNavigate();
-  const operations = (
-    <Button
-      type="primary"
-      icon={<PlusOutlined />}
-      onClick={() => navigate("/opportunity/create")}
-    >
-      Add User
-    </Button>
-  );
-
   return (
     <PageLayout
       titlePage={"Opportunity"}
@@ -43,21 +31,19 @@ const OpportunityPage = () => {
           />
 
           {/* page */}
-          {/* <Card>
+          <Card>
             <Card.Body>
+              <Button
+                type="primary"
+                className="add float-right"
+                icon={<PlusOutlined />}
+                onClick={() => navigate("/opportunity/create")}
+              >
+                Add Opportunity
+              </Button>
               <OpportunityListComponent />
             </Card.Body>
-          </Card> */}
-
-          <Card body style={{width: '95%'}} className="cards">
-            <div className="header">     
-              <button className="add float-right" type="button" onClick={() => navigate('/opportunity/create')}>
-                  <i className="logo"><BiPlus /></i>
-                  <span className="team">Add Opportunity</span>
-              </button>
-            </div>
-            <OpportunityListComponent />
-          </Card> 
+          </Card>
         </div>
       }
     ></PageLayout>
