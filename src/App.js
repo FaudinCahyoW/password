@@ -6,6 +6,10 @@ import NewPassPage from "./pages/newPassPage";
 import PageLayout from "./layouts/pageLayout";
 import Dashboard from "./pages/dashboard";
 import UserList from "./pages/userManagementPage";
+import OpportunityPage from "./pages/opportunityPage";
+import AddOpportunityPage from "./pages/addOpportunityPage";
+import EditOpportunityPage from "./pages/editOpportunityPage";
+import DetailOpportunityPage from "./pages/detailOpportunityPage";
 
 function App() {
   return (
@@ -19,6 +23,10 @@ function App() {
       <Routes element={<PageLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/user" element={<UserList />} />
+        <Route path="/opportunity" element={<OpportunityPage /> } />
+        <Route path="/opportunity/create" element={<AddOpportunityPage /> } />
+        <Route path="/opportunity/edit" element={<EditOpportunityPage /> } />
+        <Route path="/opportunity/detail" element={<DetailOpportunityPage /> } />
       </Routes>
     </Router>
   );
