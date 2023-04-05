@@ -6,6 +6,7 @@ import NewPassPage from "./pages/newPassPage";
 import PageLayout from "./layouts/pageLayout";
 import Dashboard from "./pages/dashboard";
 import UserList from "./pages/userManagementPage";
+import ListLeadPage from "./pages/listLeadPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes element={<PageLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/user" element={<UserList />} />
+        <Route path="/lead" element={<ListLeadPage />} />
       </Routes>
     </Router>
   );
