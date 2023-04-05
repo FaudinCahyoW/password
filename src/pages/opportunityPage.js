@@ -31,7 +31,7 @@ const OpportunityPage = () => {
           />
 
           {/* page */}
-          <Card>
+          <Card className="card-content">
             <Card.Body>
               <Button
                 type="primary"

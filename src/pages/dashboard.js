@@ -173,6 +173,7 @@ const UserManagementPage = () => {
           <Row gutter={16}>
             <Col span={14}>
               <Card
+                className="card-content"
                 title={
                   <div className="d-flex justify-content-between align-items-center">
                     <span>Amount of Lead</span>
@@ -182,9 +183,6 @@ const UserManagementPage = () => {
                     </Select>
                   </div>
                 }
-                style={{
-                  background: "#F8F8F9",
-                }}
               >
                 <Bar
                   height={200}
@@ -196,6 +194,7 @@ const UserManagementPage = () => {
             </Col>
             <Col span={10}>
               <Card
+                className="card-content"
                 title={
                   <div className="d-flex justify-content-between align-items-center">
                     <span>Opportunity User Static</span>
@@ -205,9 +204,6 @@ const UserManagementPage = () => {
                     </Select>
                   </div>
                 }
-                style={{
-                  background: "#F8F8F9",
-                }}
               >
                 <Bar
                   height={200}
@@ -221,6 +217,7 @@ const UserManagementPage = () => {
           <Row gutter={16} className="pt-4">
             <Col span={14}>
               <Card
+                className="card-content"
                 title={
                   <div className="d-flex justify-content-between align-items-center">
                     <span>Amount of Opportunity</span>
@@ -230,9 +227,6 @@ const UserManagementPage = () => {
                     </Select>
                   </div>
                 }
-                style={{
-                  background: "#F8F8F9",
-                }}
               >
                 <Bar
                   height={200}
@@ -245,12 +239,7 @@ const UserManagementPage = () => {
 
             {/* Partner */}
             <Col span={10}>
-              <Card
-                title="Partner"
-                style={{
-                  background: "#F8F8F9",
-                }}
-              >
+              <Card className="card-content" title="Partner">
                 <List>
                   <VirtualList
                     data={data}

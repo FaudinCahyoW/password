@@ -11,6 +11,7 @@ import AddOpportunityPage from "./pages/addOpportunityPage";
 import EditOpportunityPage from "./pages/editOpportunityPage";
 import DetailOpportunityPage from "./pages/detailOpportunityPage";
 import NotFoundPage from "./pages/notFoundPage";
+import ListLeadPage from "./pages/listLeadPage";
 
 function App() {
   return (
@@ -24,10 +25,13 @@ function App() {
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/user" element={<UserList />} />
+
         <Route path="/opportunity" element={<OpportunityPage />} />
         <Route path="/opportunity/create" element={<AddOpportunityPage />} />
         <Route path="/opportunity/edit" element={<EditOpportunityPage />} />
         <Route path="/opportunity/detail" element={<DetailOpportunityPage />} />
+
+        <Route path="/lead" element={<ListLeadPage />} />
       </Routes>
     </Router>
   );

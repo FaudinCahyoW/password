@@ -60,7 +60,7 @@ const UserManagementPage = () => {
           />
 
           {/* page */}
-          <Card>
+          <Card className="card-content">
             <Tabs tabBarExtraContent={operations} items={items} />
           </Card>
         </div>
