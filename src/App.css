@@ -40,6 +40,25 @@
   width: 35%;
 }
 .left{
+  background-image: url('../src/assets/img/bg-login.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 700px;
+  height: 100vh;
+  width: 65%;
+  background-color: gainsboro;
+}
+
+/* Style Confirm Layout */
+.right-confirm{
+  height: 100vh;
+  width: 35%;
+}
+.left-confirm{
+  background-image: url('../src/assets/img/bg-confirm.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 700px;
   height: 100vh;
   width: 65%;
   background-color: gainsboro;
@@ -49,6 +68,9 @@
 
 @media only screen and (max-width: 480px){
   .right{
+    width: fit-content;
+  }
+  .right-confirm{
     width: fit-content;
   }
 }

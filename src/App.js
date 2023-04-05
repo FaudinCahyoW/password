@@ -7,6 +7,7 @@ import PageLayout from "./layouts/pageLayout";
 import Dashboard from "./pages/dashboard";
 import UserList from "./pages/userManagementPage";
 import ListLeadPage from "./pages/listLeadPage";
+import AddLeadPage from "./pages/addLeadPage";
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/user" element={<UserList />} />
         <Route path="/lead" element={<ListLeadPage />} />
+        <Route path="/addlead" element={<AddLeadPage/>} />
       </Routes>
+      
     </Router>
   );
 }
