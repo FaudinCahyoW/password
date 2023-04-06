@@ -1,4 +1,4 @@
-import { Button, Card, Form, Input, Select, DatePicker } from "antd";
+import { Breadcrumb, Card, Form, Input, Select, DatePicker } from "antd";
 import React from "react";
 import PageLayout from "../layouts/pageLayout";
 
@@ -134,7 +134,31 @@ function AddLeadPage() {
   return (
     <PageLayout
       titlePage={"Add Lead"}
-      isiPage={<Card className="card-content">{formLayout}</Card>}
+      isiPage={
+        <div>
+          <Breadcrumb
+            separator=">"
+            style={{ fontWeight: "bold" }}
+            className="pb-4"
+            items={[
+              {
+                title: "Dashboard",
+                href: "/dashboard",
+              },
+              {
+                title: "Lead",
+                href: "/lead",
+              },
+              {
+                title: "Add",
+              },
+            ]}
+          />
+
+          {/* page */}
+          <Card className="card-content">{formLayout}</Card>
+        </div>
+      }
     ></PageLayout>
   );
 }

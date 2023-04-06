@@ -3,11 +3,11 @@ import {
   Button,
   Card,
   Input,
-  Pagination,
+  notification,
   Select,
   Space,
   Table,
-  Tabs,
+  Breadcrumb,
 } from "antd";
 import {
   FormOutlined,
@@ -17,83 +17,7 @@ import {
   FilePdfOutlined,
   FileExcelOutlined,
 } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
-
-const columns = [
-  {
-    title: "Number",
-    dataIndex: "key",
-  },
-
-  {
-    title: "Contact",
-    dataIndex: "name",
-    sorter: true,
-    key: "name",
-  },
-  {
-    title: "Lead Name",
-    dataIndex: "age",
-    sorter: true,
-    key: "age",
-  },
-  {
-    title: "Lead Status",
-    dataIndex: "address",
-    sorter: true,
-    key: "address",
-  },
-  {
-    title: "Year & Quarter",
-    dataIndex: "year",
-  },
-  {
-    title: "Lead Source",
-    dataIndex: "source",
-  },
-  {
-    title: "Budget",
-    dataIndex: "budget",
-    sorter: true,
-    key: "budget",
-  },
-  {
-    title: "Role",
-    dataIndex: "role",
-    sorter: true,
-    key: "role",
-  },
-
-  {
-    title: "Action",
-    key: "action",
-    render: (_, record) => (
-      <Space size="middle">
-        <button className="border-0 bg-light">
-          <FormOutlined
-            style={{
-              color: "#624DE3",
-            }}
-          />
-        </button>
-        <button className="border-0 b-light">
-          <EyeOutlined
-            style={{
-              color: "#624DE3",
-            }}
-          />
-        </button>
-        <button className="border-0 bg-light">
-          <DeleteOutlined
-            style={{
-              color: "#ED0000",
-            }}
-          />
-        </button>
-      </Space>
-    ),
-  },
-];
+import { useNavigate } from "react-router-dom/dist";
 
 const data = [];
 for (let i = 1; i < 46; i++) {
@@ -164,57 +88,139 @@ const ListLeadPage = () => {
     </Button>
   );
 
+  const [api, contextHolder] = notification.useNotification();
+  const openNotificationWithIcon = (type) => {
+    api.error({
+      message: "Data successfully deleted",
+    });
+  };
+
+  const columns = [
+    {
+      title: "Number",
+      dataIndex: "key",
+    },
+
+    {
+      title: "Contact",
+      dataIndex: "name",
+      sorter: true,
+      key: "name",
+    },
+    {
+      title: "Lead Name",
+      dataIndex: "age",
+      sorter: true,
+      key: "age",
+    },
+    {
+      title: "Lead Status",
+      dataIndex: "address",
+      sorter: true,
+      key: "address",
+    },
+    {
+      title: "Year & Quarter",
+      dataIndex: "year",
+    },
+    {
+      title: "Lead Source",
+      dataIndex: "source",
+    },
+    {
+      title: "Budget",
+      dataIndex: "budget",
+      sorter: true,
+      key: "budget",
+    },
+    {
+      title: "Role",
+      dataIndex: "role",
+      sorter: true,
+      key: "role",
+    },
+
+    {
+      title: "Action",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle">
+          <button className="border-0 bg-light">
+            <FormOutlined
+              style={{
+                color: "#624DE3",
+              }}
+            />
+          </button>
+          <button className="border-0 b-light">
+            <EyeOutlined
+              style={{
+                color: "#624DE3",
+              }}
+            />
+          </button>
+          {contextHolder}
+          <button
+            className="border-0"
+            onClick={() => openNotificationWithIcon()}
+          >
+            <DeleteOutlined
+              style={{
+                color: "#ED0000",
+              }}
+            />
+          </button>
+        </Space>
+      ),
+    },
+  ];
+
   return (
     <PageLayout
       titlePage={"Lead"}
       isiPage={
-        <Card className="card-content">
-          {/* <div className="container "> */}
-          {/* <div className="w-100 d-flex">
-              <Card>
-                <div className="d-flex">
-                  <h6 className="me-4">Show</h6>
-                  {dropLead}
-                  <h6 className="me-4">entries</h6>
+        <div>
+          <Breadcrumb
+            separator=">"
+            style={{ fontWeight: "bold" }}
+            className="pb-4"
+            items={[
+              {
+                title: "Dashboard",
+                href: "/dashboard",
+              },
+              {
+                title: "Lead",
+              },
+            ]}
+          />
 
-                  <Search
-                    placeholder="Search"
-                    allowClear
-                    onSearch={onSearch}
-                    style={{
-                      width: 250,
-                    }}
-                  />
-                </div>
-              </Card>
-              <Card className="ms-auto border-0">
-                <Tabs tabBarExtraContent={addLead} />
-              </Card>
-            </div> */}
-          <div className="d-flex align-items-center justify-content-between mb-4">
-            <div className="d-flex">
-              {dropLead}
-              <Search
-                placeholder="Search"
-                allowClear
-                onSearch={onSearch}
-                style={{
-                  width: 250,
-                  marginLeft: 20,
-                }}
-              />
+          {/* Page */}
+          <Card className="card-content">
+            <div className="d-flex align-items-center justify-content-between mb-4">
+              <div className="d-flex">
+                {dropLead}
+                <Search
+                  placeholder="Search"
+                  allowClear
+                  onSearch={onSearch}
+                  style={{
+                    width: 250,
+                    marginLeft: 20,
+                  }}
+                />
+              </div>
+              {addLead}
             </div>
-            {addLead}
-          </div>
-          <Table
-            columns={columns}
-            dataSource={data}
-            pagination={{ pageSize: 10 }}
-            showSizeChanger
-          ></Table>
-          {exportPage}
-          {/* </div> */}
-        </Card>
+            <Table
+              columns={columns}
+              dataSource={data}
+              pagination={{ pageSize: 10 }}
+              showSizeChanger
+            ></Table>
+            {exportPage}
+          </Card>
+        </div>
       }
     ></PageLayout>
   );
