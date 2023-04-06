@@ -5,12 +5,12 @@ import FormLeadComponent from "../components/formLeadComponent";
 
 
 
-function AddLeadPage() {
+function DetailLeadPage() {
  
 
   return (
     <PageLayout
-      titlePage={"Add Lead"}
+      titlePage={"Detail Lead"}
       isiPage={
         <div>
           <Breadcrumb
@@ -27,16 +27,16 @@ function AddLeadPage() {
                 href: "/lead",
               },
               {
-                title: "Add",
+                title: "Detail",
               },
             ]}
           />
 
           {/* page */}
-          <Card className="card-content"><FormLeadComponent textButton={"Save"}/></Card>
+          <Card className="card-content"><FormLeadComponent textButton={"Export to Opportunity"}/></Card>
         </div>
       }
     ></PageLayout>
   );
 }
-export default AddLeadPage;
+export default DetailLeadPage;

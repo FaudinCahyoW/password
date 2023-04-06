@@ -13,6 +13,8 @@ import DetailOpportunityPage from "./pages/detailOpportunityPage";
 import NotFoundPage from "./pages/notFoundPage";
 import ListLeadPage from "./pages/listLeadPage";
 import AddLeadPage from "./pages/addLeadPage";
+import EditLeadPage from "./pages/editLeadPage";
+import DetailLeadPage from "./pages/detailLeadPage";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
 
         <Route path="/lead" element={<ListLeadPage />} />
         <Route path="/lead/create" element={<AddLeadPage />} />
+        <Route path="/lead/edit" element={<EditLeadPage />} />
+        <Route path="/lead/detail" element={<DetailLeadPage />} />
       </Routes>
     </Router>
   );

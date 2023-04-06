@@ -145,14 +145,16 @@ const ListLeadPage = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <button className="border-0 bg-light">
+          <button className="border-0 bg-light" onClick={() => navigate("/lead/edit")}
+>
             <FormOutlined
               style={{
                 color: "#624DE3",
               }}
             />
           </button>
-          <button className="border-0 b-light">
+          <button className="border-0 b-light" onClick={() => navigate("/lead/detail")}
+>
             <EyeOutlined
               style={{
                 color: "#624DE3",
