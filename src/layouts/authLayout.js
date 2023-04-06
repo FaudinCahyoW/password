@@ -6,7 +6,8 @@ const AuthLayouts = (props) => {
   return (
     <>
       <div className="main d-flex">
-        <div className="left"></div>
+        <div className="left">
+        </div>
         <div className="bg-light right">
            { children }
         </div>

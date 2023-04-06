@@ -17,6 +17,7 @@ import {
   FilePdfOutlined,
   FileExcelOutlined,
 } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const columns = [
   {
@@ -133,12 +134,6 @@ const exportPage = (
   </>
 );
 
-const addLead = (
-  <Button type="primary" icon={<PlusOutlined />}>
-    Add Lead
-  </Button>
-);
-
 const { Search } = Input;
 const onSearch = (value) => console.log(value);
 
@@ -158,6 +153,17 @@ const dropLead = (
 );
 
 const ListLeadPage = () => {
+  const navigate = useNavigate();
+  const addLead = (
+    <Button
+      type="primary"
+      icon={<PlusOutlined />}
+      onClick={() => navigate("/lead/create")}
+    >
+      Add Lead
+    </Button>
+  );
+
   return (
     <PageLayout
       titlePage={"Lead"}

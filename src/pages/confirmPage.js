@@ -1,12 +1,12 @@
 import "../App.css";
 import ConfirmEmail from "../components/confirmEmailComponent";
-import AuthLayouts from "../layouts/authLayout";
+import AuthLayoutConfirm from "../layouts/authLayoutConfirm";
 
 function ConfirmPage(){
     return(
-        <AuthLayouts>
+        <AuthLayoutConfirm>
             <ConfirmEmail/>
-        </AuthLayouts>
+        </AuthLayoutConfirm>
     )
 }
 export default ConfirmPage
