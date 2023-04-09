@@ -1,11 +1,15 @@
 import { Form, Input, Select, DatePicker } from "antd";
 import React from "react";
 import PageLayout from "../layouts/pageLayout";
+import axios from "../api/axios";
+import { useState } from "react";
 
 const MyFormItemContext = React.createContext([]);
 function toArr(str) {
   return Array.isArray(str) ? str : [str];
 }
+
+
 const MyFormItemGroup = ({ prefix, children }) => {
   const prefixPath = React.useContext(MyFormItemContext);
   const concatPath = React.useMemo(
@@ -26,6 +30,26 @@ const MyFormItem = ({ name, ...props }) => {
 };
 
 function FormLeadComponent(props){
+  const [LeadStatus, setLeadStatus] = useState()
+  axios
+  .get(
+    "/leads/change-status/:id",
+    JSON.stringify({
+      LeadStatus
+    })
+  )
+  .then(function (response){
+    console.log(response)
+  })
+  .catch(function (error){
+    console.log(error)
+  })
+  .finally(function(){
+
+  })
+
+
+
     const text = props.textButton
 
     const onFinish = (value) => {
@@ -79,16 +103,14 @@ function FormLeadComponent(props){
           </Form>
         </div>
         <div class="col">
+
+
           <Form name="form_item_path" layout="vertical" onFinish={onFinish}>
             <MyFormItemGroup prefix={["user"]}>
               <MyFormItemGroup prefix={["name"]}>
                 <MyFormItem name="firstName" label="Lead Status">
                   <Select placeholder="Select Status">
                     <Select.Option value="demo">Demo</Select.Option>
-                    <Select.Option value="demo">Ready</Select.Option>
-                    <Select.Option value="demo">Carefull</Select.Option>
-                    <Select.Option value="demo">Stop</Select.Option>
-                    <Select.Option value="demo">Go</Select.Option>
                   </Select>
                 </MyFormItem>
               </MyFormItemGroup>

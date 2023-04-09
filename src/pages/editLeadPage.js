@@ -1,12 +1,10 @@
 import {  Breadcrumb, Card,} from "antd";
-import React from "react";
+import React, { useState } from "react";
 import PageLayout from "../layouts/pageLayout";
 import FormLeadComponent from "../components/formLeadComponent";
-
-
+import axios from "../api/axios";
 
 function EditLeadPage() {
- 
 
   return (
     <PageLayout
